@@ -1,2 +1,2 @@
 #!/bin/bash
-rm -r -v !(*js)
+sudo rm -r -v !(*js)
