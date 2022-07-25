@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Script that kills a specific script process
+pkill -f 7-*
