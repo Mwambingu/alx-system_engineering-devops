@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays all process in user oriented format with process hierarchy
+# shellcheck disable=SC2009
+ps auxf | grep bash
