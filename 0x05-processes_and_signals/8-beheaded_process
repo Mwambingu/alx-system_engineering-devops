@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that kills a specific script process
+id_7=$(pgrep -f 7-*)
+kill -9 "$id_7"
