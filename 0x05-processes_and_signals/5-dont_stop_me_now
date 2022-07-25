@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Script that takes a script id and kills it
+id_4=$(pgrep -f ./4-*)
+kill "$id_4"
