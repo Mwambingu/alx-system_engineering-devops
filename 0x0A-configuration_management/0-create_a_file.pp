@@ -1,4 +1,4 @@
-file{'school':
+file{'/tmp':
 ensure  =>'present',
 mode    =>'0744',
 content =>'I love Puppet',
