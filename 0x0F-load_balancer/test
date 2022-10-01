@@ -1,0 +1,22 @@
+#!/bin/env bash
+#apt-get update
+#apt-get install -y haproxy
+
+touch haproxy.cfg
+
+printf %s "frontend alx_server
+	bind *:80
+	mode http
+	timeout client 60s
+
+	default_backend alx_servers
+
+backend alx_servers
+	balance roundrobin
+	mode http
+	timeout connect 10s
+	timeout server 100s
+	
+	server 27740-web-01 3.209.12.133:80 check
+	server 27740-web-02 18.208.159.16 check
+" > ~/my_repo/alx-system_engineering-devops/0x0F-load_balancer/haproxy.cfg

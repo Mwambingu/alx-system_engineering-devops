@@ -1,0 +1,28 @@
+#!/bin/bash
+# Installs HAProxy with the following configurations:
+#+    Enables management via the init script.
+#+    Distributes requests using a round-robin algorithm.
+
+apt-get update
+apt-get install -y haproxy
+
+echo "ENABLED=1" >> /etc/default/haproxy
+mv /etc/haproxy/haproxy.cfg{,.original}
+touch /etc/haproxy/haproxy.cfg
+
+printf %s "frontend server_alx
+        bind *:80
+        mode http
+        timeout client 60s
+        default_backend alx_servers
+
+backend alx_servers
+        balance roundrobin
+        mode http
+        timeout connect 10s
+        timeout server 100s
+        server 27740-web-01 3.209.12.133:80 check
+        server 27740-web-02 18.208.159.16:80 check
+" > /etc/haproxy/haproxy.cfg
+
+service haproxy start
