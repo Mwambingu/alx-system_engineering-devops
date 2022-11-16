@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Bash script that backups all my MySQL Databases.
 # Connects to Mysql DB as root.
 # Takes one argument that is the password of root user.
