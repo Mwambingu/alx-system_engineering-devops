@@ -1,0 +1,8 @@
+# Bash script that backups all my MySQL Databases.
+# Connects to Mysql DB as root.
+# Takes one argument that is the password of root user.
+# Creates a Mysql Dump of all databases.
+# Compresses the Mysql Dump to a tar archive.
+
+mysqldump -uroot -p$1 --all-databases > backup.sql
+tar -czvf $(date '+%d-%m-%Y').tar.gz ./backup.sql
